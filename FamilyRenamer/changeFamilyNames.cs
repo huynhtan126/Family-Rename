@@ -23,6 +23,7 @@ namespace SOM.RevitTools.FamilyRenamer
 
         public void changeFamiliesNames(Document doc)
         {
+            //Gets the families
             Family familyNames = null;
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             ICollection<Element> collection = collector.OfClass(typeof(Family)).ToElements();
@@ -39,6 +40,7 @@ namespace SOM.RevitTools.FamilyRenamer
                     familyNames = e as Family;
                     string familyName = familyNames.Name;
 
+                    //Checks the dictionary and if found renames the family
                     if (dictionary.ContainsKey(familyName))
                     {
                         string value = dictionary[familyName];
@@ -47,8 +49,8 @@ namespace SOM.RevitTools.FamilyRenamer
                     }
                 }
                 t.Commit();
-
-                MessageBox.Show(count.ToString());
+                string message = "Number of Families Renamed: ";
+                MessageBox.Show(message + count.ToString());
             }
         }
     }

@@ -26,6 +26,8 @@ namespace SOM.RevitTools.FamilyRenamer
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
+
+            //initalizes the class to rename the families
             changeFamilyNames changingFamlyNames = new changeFamilyNames();
 
             changingFamlyNames.changeFamiliesNames(doc);
